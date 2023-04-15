@@ -152,16 +152,16 @@ def find_rest_in_building(building_num, db):
     #     right_order = sorted_out[x]
     #     if variable_order == right_order:
     #         name_list.append(variable[x][1])
-    #     else:
+   
             
 
 
 #Try calling your functions here
 def main():
-    # db = "South_U_Restaurants.db"
-    load_rest_data("South_U_Restaurants.db")
-    plot_rest_categories("South_U_Restaurants.db")
-    find_rest_in_building(1140,"South_U_Restaurants.db")
+    
+    # load_rest_data("South_U_Restaurants.db")
+    # plot_rest_categories("South_U_Restaurants.db")
+    # find_rest_in_building(1140,"South_U_Restaurants.db")
 
 
 
