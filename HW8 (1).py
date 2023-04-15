@@ -128,7 +128,7 @@ def find_rest_in_building(building_num, db):
 
     # reading all table names
     cur.execute("""
-        SELECT buildings.building, restaurants.name, restaurants.name 
+        SELECT buildings.building, restaurants.name, restaurants.rating 
         FROM restaurants 
         JOIN buildings ON restaurants.building_id = buildings.id WHERE buildings.building = ?""", (building_num,)
        #can take two variables first one is the sequal statement from join, where etc 
@@ -138,7 +138,8 @@ def find_rest_in_building(building_num, db):
     
     variable = cur.fetchall()
     for x in variable: 
-        print(x)
+        rating = x[2]
+        print(rating)
 
 #Try calling your functions here
 def main():
