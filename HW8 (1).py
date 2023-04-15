@@ -139,13 +139,14 @@ def find_rest_in_building(building_num, db):
     variable = cur.fetchall()
     
     rating_dict = {}
-    name_list = []
+    #name_list = []
     for x in variable: 
         rating = x[2]
         namev = x[1]
         rating_dict[rating] = namev
-    sorted_out = dict(sorted(rating_dict.keys(), reverse = True))
-    print(sorted_out)
+    new_dict = dict(sorted(rating_dict.items(),  reverse = True))
+    keys_var = list(new_dict.values())
+    return keys_var
     # for x in range(len(sorted_out)):
     #     variable_order = variable[x][2]
     #     right_order = sorted_out[x]
@@ -153,13 +154,13 @@ def find_rest_in_building(building_num, db):
     #         name_list.append(variable[x][1])
     #     else:
             
-    print(name_list)
+
 
 #Try calling your functions here
 def main():
     # db = "South_U_Restaurants.db"
     load_rest_data("South_U_Restaurants.db")
-    #plot_rest_categories("South_U_Restaurants.db")
+    plot_rest_categories("South_U_Restaurants.db")
     find_rest_in_building(1140,"South_U_Restaurants.db")
 
 
@@ -195,7 +196,7 @@ class TestHW8(unittest.TestCase):
         self.assertIsInstance(rest_data, dict)
         self.assertEqual(rest_data['M-36 Coffee Roasters Cafe'], self.rest_dict)
         self.assertEqual(len(rest_data), 25)
-'''
+
     def test_plot_rest_categories(self):
         cat_data = plot_rest_categories('South_U_Restaurants.db')
         self.assertIsInstance(cat_data, dict)
@@ -208,7 +209,7 @@ class TestHW8(unittest.TestCase):
         self.assertEqual(len(restaurant_list), 3)
         self.assertEqual(restaurant_list[0], 'BTB Burrito')
 
-'''
+
 if __name__ == '__main__':
     main()
     unittest.main(verbosity=2)
