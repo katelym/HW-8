@@ -137,9 +137,23 @@ def find_rest_in_building(building_num, db):
         )
     
     variable = cur.fetchall()
+    
+    rating_dict = {}
+    name_list = []
     for x in variable: 
         rating = x[2]
-        print(rating)
+        namev = x[1]
+        rating_dict[rating] = namev
+    sorted_out = dict(sorted(rating_dict.keys(), reverse = True))
+    print(sorted_out)
+    # for x in range(len(sorted_out)):
+    #     variable_order = variable[x][2]
+    #     right_order = sorted_out[x]
+    #     if variable_order == right_order:
+    #         name_list.append(variable[x][1])
+    #     else:
+            
+    print(name_list)
 
 #Try calling your functions here
 def main():
@@ -147,6 +161,10 @@ def main():
     load_rest_data("South_U_Restaurants.db")
     #plot_rest_categories("South_U_Restaurants.db")
     find_rest_in_building(1140,"South_U_Restaurants.db")
+
+
+
+
 class TestHW8(unittest.TestCase):
     def setUp(self):
         self.rest_dict = {
